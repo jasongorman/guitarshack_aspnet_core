@@ -1,0 +1,30 @@
+﻿@page
+@model GuitarShackShop.Web.Pages.Checkout
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<div>
+    <h1>@ViewData["Title"]</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>Product</td><td>Price</td><td>Quantity</td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (Item item in Model.Basket.Items)
+        {
+            <tr>
+                <td>@item.Product.Description</td>
+                <td>&#163 @item.Product.Price</td>
+                <td id="quantity">@item.Quantity</td>
+            </tr>
+        }
+        </tbody>
+
+    </table>
+    <p><b>Total:</b> &#163 <input type="text" id="total" readonly value="@Model.Basket.Total"/>
+
+</div>

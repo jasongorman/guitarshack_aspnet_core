@@ -1,0 +1,23 @@
+﻿@page
+@model Products
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="text-center">
+    <h1>Products</h1>
+    <table class="table">
+        <tr>
+            <td>Product ID</td>
+        </tr>
+        @foreach (Product product in Model.ProductList.Products)
+        {
+            <tr>
+                <td>
+                    <a href="ProductPage?id=@product.Id">@product.Description</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

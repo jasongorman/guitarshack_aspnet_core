@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuitarShackShop.Web", "GuitarShackShop.Web\GuitarShackShop.Web.csproj", "{BF2D1308-E66C-47F2-98D6-E01342CDA7FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuitarShackShop", "GuitarShackShop\GuitarShackShop.csproj", "{4317FCBD-531B-4CF0-9F4E-34448E4D6BAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuitarShackShop.Test", "GuitarShackShop.Test\GuitarShackShop.Test.csproj", "{719D0AD2-97DF-4247-9057-0485A64E4E11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF2D1308-E66C-47F2-98D6-E01342CDA7FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF2D1308-E66C-47F2-98D6-E01342CDA7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF2D1308-E66C-47F2-98D6-E01342CDA7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF2D1308-E66C-47F2-98D6-E01342CDA7FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4317FCBD-531B-4CF0-9F4E-34448E4D6BAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4317FCBD-531B-4CF0-9F4E-34448E4D6BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4317FCBD-531B-4CF0-9F4E-34448E4D6BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4317FCBD-531B-4CF0-9F4E-34448E4D6BAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{719D0AD2-97DF-4247-9057-0485A64E4E11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{719D0AD2-97DF-4247-9057-0485A64E4E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{719D0AD2-97DF-4247-9057-0485A64E4E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{719D0AD2-97DF-4247-9057-0485A64E4E11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

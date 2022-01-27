@@ -1,0 +1,43 @@
+﻿@page
+@model ProductPage
+
+@{
+    ViewData["Title"] = "Product Details";
+    Product product = Model.Product;
+}
+
+<div class="text-center">
+    <table class="table">
+        <thead>
+        <tr>
+            <td>
+                <b>Description</b>
+            </td><td>@product.Description</td>
+        </tr>
+        <tr>
+            <td>
+                <b>Price</b>
+            </td><td>&#163 @product.Price</td>
+        </tr>
+        <tr>
+            <td>
+                <b>Stock</b>
+            </td><td>@product.Stock</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>
+                <button id="add_to_basket" type="submit" onclick="location.href='ProductPage?id=@product.Id&action=add'">Add to basket</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <p>
+        <a href="Checkout">Checkout</a>
+    </p>
+    <p>
+        <a href="Products">Continue Shopping</a>
+    </p>
+</div>
