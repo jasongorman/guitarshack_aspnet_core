@@ -22,14 +22,15 @@
         <tr>
             <td>
                 <b>Stock</b>
-            </td><td>@product.Stock</td>
+            </td><td id="stock">@product.Stock</td>
         </tr>
         </thead>
         <tbody>
         <tr>
             <td></td>
             <td>
-                <button id="add_to_basket" type="submit" onclick="location.href='ProductPage?id=@product.Id&action=add'">Add to basket</button>
+                <button id="add_to_basket" type="submit" @(!Model.AddToBasketEnabled? "disabled": "")
+                        onclick="location.href='ProductPage?id=@product.Id&action=add'">Add to basket</button>
             </td>
         </tr>
         </tbody>

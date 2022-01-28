@@ -8,29 +8,36 @@ namespace GuitarShackShop.Web.Pages
     public class ProductPage : PageModel
     {
         private Product _product;
+        private SessionBasket _sessionBasket;
 
         public Product Product => _product;
+        public bool AddToBasketEnabled => _product.Stock > 0;
 
         public void OnGet()
         {
-            ProductList productList = new ProductList();
+            _sessionBasket = new SessionBasket(HttpContext.Session);
+            ProductList productList = _sessionBasket.GetProductList();
             
             int productId = Int32.Parse(Request.Query["id"]);
             string action = Request.Query["action"];
 
             _product = productList.GetProduct(productId);
-            
+
             if (action != null)
+            {
                 AddToBasket(_product);
+            }
+            
+            _sessionBasket.SetProductList(productList);
+
         }
 
         private void AddToBasket(Product product)
         {
-            var sessionBasket = new SessionBasket(HttpContext.Session);
-            var basket = sessionBasket.GetBasket();
+            var basket = _sessionBasket.GetBasket();
 
             basket.Add(product, 1);
-            sessionBasket.SetBasket(basket);
+            _sessionBasket.SetBasket(basket);
         }
 
 

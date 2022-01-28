@@ -9,6 +9,9 @@ namespace GuitarShackShop
 
         public void Add(Product product, int quantity)
         {
+            if (product.Stock < quantity)
+                throw new OutOfStockException();
+            
             Item item = Items.Find(it => it.Product.Id == product.Id);
 
             if (item == null)
@@ -18,6 +21,7 @@ namespace GuitarShackShop
             }
 
             item.Quantity += quantity;
+            product.Stock--;
 
         }
 
