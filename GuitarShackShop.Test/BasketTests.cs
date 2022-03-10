@@ -2,59 +2,57 @@ using NUnit.Framework;
 
 namespace GuitarShackShop.Test
 {
-    public class BasketTests
+    public abstract class BasketTestsBase
     {
+        protected IBasketDriver Basket;
 
         [Test]
         public void TotalOfEmptyBasket()
         {
-            Basket basket = new Basket();
-            Assert.AreEqual(0.0, basket.Total);
+            Basket.New();
+            Assert.AreEqual(0.0, Basket.Total);
         }
 
         [Test]
         public void TotalOfSingleItem()
         {
-            Basket basket = new Basket();
-            basket.Add(new Product() { Price = 399.95, Stock = 1 }, 1);
-            Assert.AreEqual(399.95, basket.Total);
+            Basket.New();
+            Basket.Add(1, 1);
+            Assert.AreEqual(399.95, Basket.Total);
         }
-        
+
         [Test]
         public void TotalOfTwoItems()
         {
-            Basket basket = new Basket();
-            basket.Add(new Product() { Id = 1, Price = 399.95, Stock = 1 }, 1);
-            basket.Add(new Product() { Id = 2, Price = 579.00, Stock = 1 }, 1);
-            Assert.AreEqual(978.95, basket.Total);
+            Basket.New();
+            Basket.Add(1, 1);
+            Basket.Add(2, 1);
+            Assert.AreEqual(978.95, Basket.Total, 0.001);
         }
-        
+
         [Test]
         public void TotalOfItemWithQuantityOfTwo()
         {
-            Basket basket = new Basket();
-            var product = new Product() { Id = 1, Price = 399.95, Stock = 2 };
-            basket.Add(product, 1);
-            basket.Add(product, 1);
-            Assert.AreEqual(799.9, basket.Total);
-            Assert.AreEqual(2, basket.Items[0].Quantity);
+            Basket.New();
+            Basket.Add(1, 1);
+            Basket.Add(1, 1);
+            Assert.AreEqual(799.9, Basket.Total);
+            Assert.AreEqual(2, Basket.ItemQuantity(0));
         }
 
         [Test]
         public void AddingProductToBasketReducesStock()
         {
-            Product product = new Product() { Id = 1, Stock = 10 };
-            Basket basket = new Basket();
-            basket.Add(product, 1);
-            Assert.AreEqual(9, product.Stock);
+            Basket.New();
+            Basket.Add(1, 1);
+            Assert.AreEqual(4, Basket.Stock(1));
         }
 
         [Test]
         public void CannotAddOutOfStockProductToBasket()
         {
-            Product product = new Product() { Id = 1, Stock = 0 };
-            Basket basket = new Basket();
-            Assert.Throws<OutOfStockException>(() => basket.Add(product, 1));
+            Basket.New();
+            Assert.False(Basket.AddIsAllowed(3));
         }
     }
 }
